@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Professional Profile</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            margin: 15px 0 5px;
+            color: #2c3e50;
+        }
+        
+        .tagline {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-whatsapp { background: #25D366; }
+        .btn-insta { background: #E1306C; }
+        .btn-youtube { background: #FF0000; }
+        .btn-resume { background: #2ecc71; }
+        .btn-about { background: #9b59b6; }
+        
+        section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #f4f4f9;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 600px) {
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <!-- Replace with your actual image path -->
+            <img src="profile.jpg" alt="Profile Picture" class="profile-img">
+            <h1>Your Name</h1>
+            <p class="tagline">Your Profession or Tagline</p>
+            
+            <div class="social-links">
+                <a href="https://wa.me/yourphonenumber" class="btn btn-whatsapp">WhatsApp</a>
+                <a href="https://instagram.com/yourusername" class="btn btn-insta">Instagram</a>
+                <a href="https://youtube.com/yourchannel" class="btn btn-youtube">YouTube</a>
+                <a href="resume.pdf" class="btn btn-resume">My Resume</a>
+                <a href="#about" class="btn btn-about">About Me</a>
+            </div>
+        </header>
+        
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hello! I'm [Your Name], a [your profession] with [X] years of experience in [your field]. I specialize in [your skills] and I'm passionate about [your interests].</p>
+            <p>When I'm not working, I enjoy [your hobbies]. I believe in [your philosophy or values].</p>
+        </section>
+        
+        <section>
+            <h2>My Work</h2>
+            <p>Here are some highlights of my professional journey:</p>
+            <ul>
+                <li>Accomplishment 1</li>
+                <li>Accomplishment 2</li>
+                <li>Accomplishment 3</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Gallery</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px;">
+                <!-- Replace with your actual images -->
+                <img src="image1.jpg" alt="Work sample 1" style="width: 100%; border-radius: 8px;">
+                <img src="image2.jpg" alt="Work sample 2" style="width: 100%; border-radius: 8px;">
+                <img src="image3.jpg" alt="Work sample 3" style="width: 100%; border-radius: 8px;">
+            </div>
+        </section>
+        
+        <footer>
+            <p>© 2023 Your Name. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
