@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Developer Portfolio</title>
+    <title>Samhax-Tech Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -162,6 +162,26 @@
             border-color: rgba(255,255,255,0.1);
         }
         
+        .btn-github {
+            background: linear-gradient(135deg, #333, #6e5494);
+            border-color: rgba(255,255,255,0.1);
+        }
+        
+        .btn-telegram {
+            background: linear-gradient(135deg, #0088cc, #34aadc);
+            border-color: rgba(255,255,255,0.1);
+        }
+        
+        .btn-whatsapp-bot {
+            background: linear-gradient(135deg, #075E54, #128C7E);
+            border-color: rgba(255,255,255,0.1);
+        }
+        
+        .btn-hosting {
+            background: linear-gradient(135deg, #7b2dff, #9b59b6);
+            border-color: rgba(255,255,255,0.1);
+        }
+        
         section {
             background: rgba(10, 10, 20, 0.7);
             padding: 40px;
@@ -202,7 +222,6 @@
             background: var(--secondary);
         }
         
-        /* Stats Grid */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -241,7 +260,6 @@
             letter-spacing: 1px;
         }
         
-        /* Skills Matrix */
         .skills-matrix {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -288,7 +306,6 @@
             transition: width 1.5s ease-out;
         }
         
-        /* Project Gallery */
         .project-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -377,6 +394,25 @@
             margin-top: 60px;
         }
         
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .footer-link {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+        
         /* Animations */
         @keyframes float {
             0%, 100% { transform: translateY(0); }
@@ -387,6 +423,16 @@
             animation: float 4s ease-in-out infinite;
         }
         
+        /* Placeholder images */
+        .placeholder-img {
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.3);
+            font-size: 0.8rem;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             h1 { font-size: 2.2rem; }
@@ -395,6 +441,7 @@
             .btn { width: 100%; justify-content: center; }
             section { padding: 25px; }
             .stats-grid { grid-template-columns: 1fr; }
+            .footer-links { flex-direction: column; }
         }
     </style>
 </head>
@@ -418,18 +465,21 @@
                 <a href="https://youtube.com/@Samhax_tech" class="btn btn-youtube">
                     <i class="fab fa-youtube"></i> YouTube
                 </a>
-                <a href="resume.pdf" class="btn btn-resume">
-                    <i class="fas fa-file-alt"></i> My Resume
+                <a href="https://github.com/Samhax-Tech" class="btn btn-github">
+                    <i class="fab fa-github"></i> GitHub
                 </a>
-                <a href="#about" class="btn btn-about">
-                    <i class="fas fa-user"></i> About Me
+                <a href="https://t.me/Samhax-Tech" class="btn btn-telegram">
+                    <i class="fab fa-telegram"></i> Telegram
+                </a>
+                <a href="#whatsapp-bot" class="btn btn-whatsapp-bot">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Bot
                 </a>
             </div>
         </header>
         
         <section id="about">
             <h2>About Me</h2>
-            <p>Hello! I'm Hamza, a passionate Full Stack Developer with 8+ years of experience building cutting-edge web applications. I specialize in JavaScript frameworks (React, Vue, Node.js) and have deep expertise in cloud architecture and machine learning integration.</p>
+            <p>Hello! I'm Hamza, a passionate Full Stack Developer with 4+ years of experience building cutting-edge web applications. I specialize in JavaScript frameworks (React, Vue, Node.js) and have deep expertise in cloud architecture and machine learning integration.</p>
             <p>When I'm not coding, I contribute to open-source projects, write technical blogs, and speak at developer conferences. I believe in building technology that makes a real difference in people's lives.</p>
             
             <div class="stats-grid">
@@ -518,38 +568,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="skill-category">
-                    <h3>DevOps & Cloud</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>AWS</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Docker</span>
-                            <span>87%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="87%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>CI/CD</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="85%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
         
         <section id="projects">
@@ -558,7 +576,7 @@
             
             <div class="project-gallery">
                 <div class="project-card">
-                    <img src="project1.jpg" alt="AI Dashboard" class="project-image">
+                    <div class="project-image placeholder-img">AI Dashboard Preview</div>
                     <div class="project-info">
                         <h3 class="project-title">AI Analytics Dashboard</h3>
                         <p>A real-time analytics platform with machine learning predictions and customizable dashboards.</p>
@@ -571,35 +589,82 @@
                 </div>
                 
                 <div class="project-card">
-                    <img src="project2.jpg" alt="Blockchain App" class="project-image">
-                    <div class="project-info">
-                        <h3 class="project-title">Blockchain Voting System</h3>
-                        <p>Decentralized voting application with smart contracts and transparent audit trails.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Solidity</span>
-                            <span class="tech-tag">Web3.js</span>
-                            <span class="tech-tag">Ethereum</span>
-                        </div>
-                    </div>
+    <div class="project-image placeholder-img">Web Designer Portfolio Preview</div>
+    <div class="project-info">
+        <h3 class="project-title">Personal Web Designer Portfolio</h3>
+        <p>A responsive portfolio website showcasing web design skills and projects.</p>
+        <div class="project-tech">
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">JavaScript</span>
+        </div>
+    </div>
+</div>
+            </div>
+        </section>
+        
+        <section id="whatsapp-bot">
+            <h2>WhatsApp Bot Services</h2>
+            <p>I offer specialized WhatsApp bot development and hosting services:</p>
+            
+            <div class="skills-matrix">
+                <div class="skill-category">
+                    <h3>Bot Features</h3>
+                    <ul>
+                        <li>Automated responses and chatbots</li>
+                        <li>CRM integration</li>
+                        <li>Payment processing</li>
+                        <li>Multi-language support</li>
+                        <li>AI-powered interactions</li>
+                    </ul>
                 </div>
                 
-                <div class="project-card">
-                    <img src="project3.jpg" alt="IoT Platform" class="project-image">
-                    <div class="project-info">
-                        <h3 class="project-title">IoT Monitoring Platform</h3>
-                        <p>Enterprise-grade IoT solution for real-time device monitoring and predictive maintenance.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">AWS IoT</span>
-                            <span class="tech-tag">React Native</span>
-                            <span class="tech-tag">Python</span>
-                        </div>
-                    </div>
+                <div class="skill-category">
+                    <h3>Hosting Services</h3>
+                    <ul>
+                        <li>24/7 uptime monitoring</li>
+                        <li>Scalable cloud infrastructure</li>
+                        <li>Daily backups</li>
+                        <li>DDoS protection</li>
+                        <li>API integration support</li>
+                    </ul>
                 </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://wa.me/+923287573267" class="btn btn-whatsapp-bot" style="margin: 10px;">
+                    <i class="fas fa-robot"></i> Contact for Bot Development
+                </a>
+                <a href="#" class="btn btn-hosting" style="margin: 10px;">
+                    <i class="fas fa-server"></i> WhatsApp Bot Hosting
+                </a>
             </div>
         </section>
         
         <footer>
-            <p>© <span id="current-year">2025</span> Samhax-TechDev. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="https://github.com/Samhax-Tech" class="footer-link">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://instagram.com/Samhax_official" class="footer-link">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://youtube.com/@Samhax_tech" class="footer-link">
+                    <i class="fab fa-youtube"></i> YouTube
+                </a>
+                <a href="https://t.me/Samhax-Tech" class="footer-link">
+                    <i class="fab fa-telegram"></i> Telegram
+                </a>
+                <a href="https://wa.me/+923287573267" class="footer-link">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="#whatsapp-bot" class="https://wa.me/+923430794116">
+                    <i class="fas fa-robot"></i> Bot Services
+                </a>
+            </div>
+            <p>© <span id="current-year">2025</span> Samhax-Tech. All rights reserved.</p>
+            <p>Built with <i class="fas fa-heart" style="color: var(--secondary);"></i> and <i class="fas fa-code" style="color: var(--primary);"></i></p>
+        </footer>
     </div>
 
     <script>
@@ -646,8 +711,17 @@
             }
         }
         
-        window.addEventListener('scroll', checkScroll);
-        window.addEventListener('load', checkScroll);
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // Run initial check in case page loads with section already visible
+            checkScroll();
+            
+            // Add scroll listener
+            window.addEventListener('scroll', checkScroll);
+        });
     </script>
 </body>
 </html>
