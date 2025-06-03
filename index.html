@@ -1,19 +1,758 @@
-<div class="skills-section">
-    <h2 class="section-title">Skills</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samhax-Tech Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00f0ff;
+            --secondary: #ff2d75;
+            --dark: #0a0a14;
+            --darker: #05050a;
+            --light: #f0f0f0;
+            --accent: #7b2dff;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(123, 45, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(0, 240, 255, 0.15) 0%, transparent 50%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Cyberpunk Glow Effect */
+        .glow {
+            text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
+        }
+        
+        /* Header with animated gradient border */
+        header {
+            text-align: center;
+            padding: 60px 0 40px;
+            position: relative;
+            margin-bottom: 60px;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+            animation: borderPulse 3s infinite alternate;
+        }
+        
+        @keyframes borderPulse {
+            0% { width: 200px; opacity: 1; }
+            100% { width: 300px; opacity: 0.7; }
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid transparent;
+            background: linear-gradient(var(--dark), var(--dark)) padding-box,
+                        linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+            transition: transform 0.5s;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .profile-img:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+        
+        h1 {
+            margin: 25px 0 10px;
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--primary), var(--light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -1px;
+        }
+        
+        .tagline {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 40px 0;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-whatsapp { 
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-color: rgba(255,255,255,0.1);
+        }
+        
+        .btn-insta { 
+            background: linear-gradient(135deg, #E1306C, #833AB4);
+            border-color: rgba(255,255,255,0.1);
+        }
+        
+        .btn-youtube { 
+            background: linear-gradient(135deg, #FF0000, #CC0000);
+            border-color: rgba(255,255,255,0.1);
+        }
+        
+        .btn-resume { 
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            border-color: rgba(255,255,255,0.1);
+        }
+        
+        .btn-about { 
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            border-color: rgba(255,255,255,0.1);
+        }
+        
+        .btn-github {
+            background: linear-gradient(135deg, #333, #6e5494);
+            border-color: rgba(255,255,255,0.1);
+        }
+        
+        .btn-telegram {
+            background: linear-gradient(135deg, #0088cc, #34aadc);
+            border-color: rgba(255,255,255,0.1);
+        }
+        
+        .btn-whatsapp-bot {
+            background: linear-gradient(135deg, #075E54, #128C7E);
+            border-color: rgba(255,255,255,0.1);
+        }
+        
+        .btn-hosting {
+            background: linear-gradient(135deg, #7b2dff, #9b59b6);
+            border-color: rgba(255,255,255,0.1);
+        }
+        
+        section {
+            background: rgba(10, 10, 20, 0.7);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin: 0 0 30px;
+            color: var(--primary);
+            display: inline-block;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .stat-card {
+            background: rgba(0, 240, 255, 0.05);
+            border: 1px solid rgba(0, 240, 255, 0.1);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 240, 255, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 10px 0;
+        }
+        
+        .stat-label {
+            color: rgba(255,255,255,0.7);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .skills-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .skill-category {
+            background: rgba(255,255,255,0.03);
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .skill-category h3 {
+            color: var(--secondary);
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+        
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 4px;
+            width: 0;
+            transition: width 1.5s ease-out;
+        }
+        
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .project-card {
+            background: rgba(255,255,255,0.03);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            margin: 0 0 10px;
+            color: var(--primary);
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0;
+        }
+        
+        .tech-tag {
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--primary);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        /* Animated Background Elements */
+        .bg-element {
+            position: fixed;
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        
+        .bg-element-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            top: -100px;
+            left: -100px;
+            filter: blur(80px);
+        }
+        
+        .bg-element-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--secondary);
+            bottom: -150px;
+            right: -150px;
+            filter: blur(100px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 60px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .footer-link {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        /* Placeholder images */
+        .placeholder-img {
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.3);
+            font-size: 0.8rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .tagline { font-size: 1.1rem; }
+            .social-links { flex-direction: column; align-items: center; }
+            .btn { width: 100%; justify-content: center; }
+            section { padding: 25px; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .footer-links { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-element bg-element-1"></div>
+    <div class="bg-element bg-element-2"></div>
     
-    <div class="skill">
-        <div class="skill-name">HTML & CSS</div>
-        <div class="skill-bar">
-            <div class="skill-progress" data-width="90%"></div>
-        </div>
+    <div class="container">
+        <header>
+            <img src="https://files.catbox.moe/zv2pf2.jpeg" alt="Profile Picture" class="profile-img floating">
+            <h1>Samhax-Tech</h1>
+            <p class="tagline">Web Designer | AI Enthusiast </p>
+            
+            <div class="social-links">
+                <a href="https://wa.me/+923287573267" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://instagram.com/Samhax_official" class="btn btn-insta">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://youtube.com/@Samhax_tech" class="btn btn-youtube">
+                    <i class="fab fa-youtube"></i> YouTube
+                </a>
+                <a href="https://github.com/Samhax-tech" class="btn btn-github">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://t.me/Samhax_official" class="btn btn-telegram">
+                    <i class="fab fa-telegram"></i> Telegram
+                </a>
+                <a href="https://github.com/Samhax-tech/Samhax-ai" class="btn btn-whatsapp-bot">
+                    <i class="fab fa-github"></i> Github Repo
+                </a>
+                <!-- PDF Download Button -->
+                <a href="path/to/your/resume.pdf" class="btn btn-resume" download="Samhax-Tech-Resume.pdf">
+                    <i class="fas fa-file-pdf"></i> Download Resume
+                </a>
+            </div>
+        </header>
+        
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hello! I'm Muhammad Hamza, known as Samhax online. I provide professional web design, bot development, and hosting services. I combine creativity and technical skills to build engaging websites and efficient bots, supported by reliable hosting.</p>
+            <p>My expertise focuses on delivering tailored web experiences, developing intelligent automation solutions, and offering dependable hosting to ensure optimal online performance.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="projects-count">0</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="clients-count">0</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="experience-years">0</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="coffee-cups">0</div>
+                    <div class="stat-label">Cups of Coffee</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills">
+            <h2>Web Design Skills</h2>
+            <p>My expertise lies in crafting visually appealing and user-friendly web experiences. Here's a look at my key design proficiencies:</p>
+
+            <div class="skills-matrix">
+                <div class="skill-category">
+                    <h3>Design Tools & Technologies</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>UI/UX Design</span>
+                            <span>82%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>HTML</span>
+                            <span>89%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>CSS</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="92%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>JavaScript (for interactivity)</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Responsive Design</span>
+                            <span>98%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="98%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Bot Development & AI</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>WhatsApp Bot Development</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>LLM Integration</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>NLP (Natural Language Processing)</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <p>Some of my recent work that I'm particularly proud of:</p>
+            
+            <div class="project-gallery">
+                <div class="project-card">
+                    <div class="placeholder-img">AI Dashboard Preview</div>
+                    <div class="project-info">
+                        <h3 class="project-title">AI Analytics Dashboard</h3>
+                        <p>A real-time analytics platform with machine learning predictions and customizable dashboards.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">TensorFlow.js</span>
+                        </div>
+                        <a href="https://github.com/Samhax-tech/Samhax-ai" class="btn btn-github" style="margin-top: 15px; padding: 8px 15px; font-size: 0.9rem;">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="placeholder-img">Web Designer Portfolio Preview</div>
+                    <div class="project-info">
+                        <h3 class="project-title">Personal Web Designer Portfolio</h3>
+                        <p>A responsive portfolio website showcasing web design skills and projects.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <a href="https://samhax-profilez.vercel.app/" class="btn btn-primary" style="margin-top: 15px; padding: 8px 15px; font-size: 0.9rem; background: var(--primary);">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="whatsapp-bot">
+            <h2>WhatsApp Bot Services</h2>
+            <p>I offer specialized WhatsApp bot development and hosting services:</p>
+            
+            <div class="skills-matrix">
+                <div class="skill-category">
+                    <h3>Bot Features</h3>
+                    <ul>
+                        <li>Automated responses and chatbots</li>
+                        <li>CRM integration</li>
+                        <li>Payment processing</li>
+                        <li>Multi-language support</li>
+                        <li>AI-powered interactions</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Hosting Services</h3>
+                    <ul>
+                        <li>24/7 uptime monitoring</li>
+                        <li>Scalable cloud infrastructure</li>
+                        <li>Daily backups</li>
+                        <li>DDoS protection</li>
+                        <li>API integration support</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://wa.me/+923287573267" class="btn btn-whatsapp-bot" style="margin: 10px;">
+                    <i class="fas fa-robot"></i> Contact for Bot Development
+                </a>
+                <a href="#" class="btn btn-hosting" style="margin: 10px;">
+                    <i class="fas fa-server"></i> WhatsApp Bot Hosting
+                </a>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="footer-links">
+                <a href="https://github.com/Samhax-Tech" class="footer-link">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://instagram.com/Samhax_official" class="footer-link">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://youtube.com/@Samhax_tech" class="footer-link">
+                    <i class="fab fa-youtube"></i> YouTube
+                </a>
+                <a href="https://t.me/Samhax-Tech" class="footer-link">
+                    <i class="fab fa-telegram"></i> Telegram
+                </a>
+                <a href="https://wa.me/+923287573267" class="footer-link">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="#whatsapp-bot" class="footer-link">
+                    <i class="fas fa-robot"></i> Bot Services
+                </a>
+            </div>
+            <p>© <span id="current-year">2025</span> Samhax-Tech. All rights reserved.</p>
+            <p>Built with <i class="fas fa-heart" style="color: var(--secondary);"></i> and <i class="fas fa-code" style="color: var(--primary);"></i></p>
+        </footer>
     </div>
 
-    <div class="skill">
-        <div class="skill-name">JavaScript</div>
-        <div class="skill-bar">
-            <div class="skill-progress" data-width="85%"></div>
-        </div>
-    </div>
-
-    <!-- Add more skills as needed -->
-</div>
+    <script>
+        // Animated counters
+        function animateValue(id, start, end, duration) {
+            const obj = document.getElementById(id);
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+        
+        // Animate skill bars
+        function animateSkills() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = width;
+            });
+        }
+        
+        // Set current year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Run animations when scrolled to
+        function checkScroll() {
+            const aboutSection = document.getElementById('about');
+            const aboutPosition = aboutSection.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+            
+            if (aboutPosition < screenPosition) {
+                animateValue('projects-count', 0, 50, 2000);
+                animateValue('clients-count', 0, 38, 2000);
+                animateValue('experience-years', 0, 2, 2000);
+                animateValue('coffee-cups', 0, 143, 2000);
+                animateSkills();
+                window.removeEventListener('scroll', checkScroll);
+            }
+        }
+        
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // Run initial check in case page loads with section already visible
+            checkScroll();
+            
+            // Add scroll listener
+            window.addEventListener('scroll', checkScroll);
+        });
+    </script>
+</body>
+</html>
