@@ -74,6 +74,8 @@
                         linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
             box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
             transition: transform 0.5s;
+            display: block;
+            margin: 0 auto;
         }
         
         .profile-img:hover {
@@ -471,8 +473,12 @@
                 <a href="https://t.me/Samhax_official" class="btn btn-telegram">
                     <i class="fab fa-telegram"></i> Telegram
                 </a>
-                <a href="https://github.com/Samhax-tech/Samhax-ai" class="btn btn-whatsapp-bot-Repo">
+                <a href="https://github.com/Samhax-tech/Samhax-ai" class="btn btn-whatsapp-bot">
                     <i class="fab fa-github"></i> Github Repo
+                </a>
+                <!-- PDF Download Button -->
+                <a href="path/to/your/resume.pdf" class="btn btn-resume" download="Samhax-Tech-Resume.pdf">
+                    <i class="fas fa-file-pdf"></i> Download Resume
                 </a>
             </div>
         </header>
@@ -503,98 +509,99 @@
         </section>
         
         <section id="skills">
-    <h2>Web Design Skills</h2>
-    <p>My expertise lies in crafting visually appealing and user-friendly web experiences. Here's a look at my key design proficiencies:</p>
+            <h2>Web Design Skills</h2>
+            <p>My expertise lies in crafting visually appealing and user-friendly web experiences. Here's a look at my key design proficiencies:</p>
 
-    <div class="skills-matrix">
-        <div class="skill-category">
-            <h3>Design Tools & Technologies</h3>
-            <div class="skill-item">
-                <div class="skill-name">
-                    <span>UI/UX Design</span>
-                    <span>82%</span>
+            <div class="skills-matrix">
+                <div class="skill-category">
+                    <h3>Design Tools & Technologies</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>UI/UX Design</span>
+                            <span>82%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>HTML</span>
+                            <span>89%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>CSS</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="92%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>JavaScript (for interactivity)</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Responsive Design</span>
+                            <span>98%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="98%"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" data-width="90%"></div>
+                
+                <div class="skill-category">
+                    <h3>Bot Development & AI</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>WhatsApp Bot Development</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>LLM Integration</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>NLP (Natural Language Processing)</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70%"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="skill-item">
-                <div class="skill-name">
-                    <span>HTML</span>
-                    <span>89%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" data-width="95%"></div>
-                </div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-name">
-                    <span>CSS</span>
-                    <span>92%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" data-width="92%"></div>
-                </div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-name">
-                    <span>JavaScript (for interactivity)</span>
-                    <span>80%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" data-width="80%"></div>
-                </div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-name">
-                    <span>Responsive Design</span>
-                    <span>98%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" data-width="98%"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-               <div class="skill-category">
-    <h3>Bot Development & AI</h3>
-    <div class="skill-item">
-        <div class="skill-name">
-            <span>WhatsApp Bot Development</span>
-            <span>90%</span>
-        </div>
-        <div class="skill-bar">
-            <div class="skill-progress" data-width="85%"></div>
-        </div>
-    </div>
-    <div class="skill-item">
-        <div class="skill-name">
-            <span>LLM Integration</span>
-            <span>75%</span>
-        </div>
-        <div class="skill-bar">
-            <div class="skill-progress" data-width="75%"></div>
-        </div>
-    </div>
-    <div class="skill-item">
-        <div class="skill-name">
-            <span>NLP (Natural Language Processing)</span>
-            <span>70%</span>
-        </div>
-        <div class="skill-bar">
-            <div class="skill-progress" data-width="70%"></div>
-        </div>
-    </div>
-</div>
-<section>
+        </section>
+        
         <section id="projects">
             <h2>Featured Projects</h2>
             <p>Some of my recent work that I'm particularly proud of:</p>
             
             <div class="project-gallery">
                 <div class="project-card">
-                    <div class="project-image placeholder-img">AI Dashboard Preview</div>
+                    <div class="placeholder-img">AI Dashboard Preview</div>
                     <div class="project-info">
                         <h3 class="project-title">AI Analytics Dashboard</h3>
                         <p>A real-time analytics platform with machine learning predictions and customizable dashboards.</p>
@@ -603,22 +610,27 @@
                             <span class="tech-tag">Node.js</span>
                             <span class="tech-tag">TensorFlow.js</span>
                         </div>
+                        <a href="https://github.com/Samhax-tech/Samhax-ai" class="btn btn-github" style="margin-top: 15px; padding: 8px 15px; font-size: 0.9rem;">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
                     </div>
                 </div>
-                </section>
                 
                 <div class="project-card">
-    <div class="project-image placeholder-img">Web Designer Portfolio Preview</div>
-    <div class="project-info">
-        <h3 class="project-title">Personal Web Designer Portfolio</h3>
-        <p>A responsive portfolio website showcasing web design skills and projects.</p>
-        <div class="project-tech">
-            <span class="tech-tag">HTML</span>
-            <span class="tech-tag">CSS</span>
-            <span class="tech-tag">JavaScript</span>
-        </div>
-    </div>
-</div>
+                    <div class="placeholder-img">Web Designer Portfolio Preview</div>
+                    <div class="project-info">
+                        <h3 class="project-title">Personal Web Designer Portfolio</h3>
+                        <p>A responsive portfolio website showcasing web design skills and projects.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <a href="https://samhax-profilez.vercel.app/" class="btn btn-primary" style="margin-top: 15px; padding: 8px 15px; font-size: 0.9rem; background: var(--primary);">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
         
@@ -677,7 +689,7 @@
                 <a href="https://wa.me/+923287573267" class="footer-link">
                     <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
-                <a href="#whatsapp-bot" class="https://wa.me/+923430794116">
+                <a href="#whatsapp-bot" class="footer-link">
                     <i class="fas fa-robot"></i> Bot Services
                 </a>
             </div>
