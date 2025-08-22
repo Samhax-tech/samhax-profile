@@ -3,28 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samhax-Tech Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Samhax-Tech | Cyberpunk Web Designer & AI Specialist</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #00f0ff;
-            --secondary: #ff2d75;
-            --dark: #0a0a14;
-            --darker: #05050a;
-            --light: #f0f0f0;
-            --accent: #7b2dff;
+            --primary: #00ffff;
+            --secondary: #ff0080;
+            --accent: #00ff41;
+            --dark: #0a0a0f;
+            --darker: #050508;
+            --light: #ffffff;
+            --gray: #333344;
+            --neon-blue: #00d4ff;
+            --neon-pink: #ff006e;
+            --neon-green: #39ff14;
+            --neon-purple: #bf00ff;
+            --electric-blue: #0080ff;
+            --cyber-orange: #ff4500;
         }
         
         body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-family: 'Rajdhani', 'Orbitron', monospace;
             margin: 0;
             padding: 0;
-            background-color: var(--dark);
+            background: linear-gradient(135deg, var(--darker) 0%, #1a0033 25%, #000011 50%, #001122 75%, var(--dark) 100%);
+            background-attachment: fixed;
             color: var(--light);
             overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Cyberpunk Grid Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-image: 
-                radial-gradient(circle at 25% 25%, rgba(123, 45, 255, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(0, 240, 255, 0.15) 0%, transparent 50%);
+                linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
+            animation: gridPulse 4s ease-in-out infinite alternate;
+        }
+        
+        @keyframes gridPulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.1; }
+        }
+        
+        /* Floating Particles */
+        .particle {
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            animation: float 6s linear infinite;
+        }
+        
+        .particle:nth-child(2n) { background: var(--neon-pink); animation-duration: 8s; }
+        .particle:nth-child(3n) { background: var(--neon-green); animation-duration: 10s; }
+        .particle:nth-child(4n) { background: var(--neon-purple); animation-duration: 7s; }
+        .particle:nth-child(5n) { background: var(--electric-blue); animation-duration: 9s; }
+        
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
         }
         
         .container {
@@ -38,12 +93,37 @@
             text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
         }
         
-        /* Header with animated gradient border */
+        /* Header with cyberpunk effects */
         header {
             text-align: center;
-            padding: 60px 0 40px;
+            padding: 80px 0;
             position: relative;
-            margin-bottom: 60px;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(255, 0, 128, 0.1) 100%);
+            border-radius: 20px;
+            margin: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            box-shadow: 
+                0 0 50px rgba(0, 255, 255, 0.3),
+                inset 0 0 50px rgba(255, 0, 128, 0.1);
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            animation: scanline 3s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes scanline {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
         
         header::after {
@@ -179,10 +259,142 @@
             border-color: rgba(255,255,255,0.1);
         }
         
+        .btn-discord {
+            background: linear-gradient(135deg, #5865F2, #404EED);
+            border-color: rgba(255,255,255,0.1);
+        }
+        
         .btn-hosting {
             background: linear-gradient(135deg, #7b2dff, #9b59b6);
             border-color: rgba(255,255,255,0.1);
         }
+        
+        /* Enhanced Button Styles - More Unique Design */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transform: translateY(0);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.6s;
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.4s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+            border-color: rgba(255,255,255,0.2);
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+        
+        /* Unique gradient animations for each button */
+        .btn-whatsapp { 
+            background: linear-gradient(135deg, #25D366, #128C7E, #075E54);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        .btn-insta { 
+            background: linear-gradient(135deg, #E1306C, #833AB4, #405DE6);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        .btn-youtube { 
+            background: linear-gradient(135deg, #FF0000, #CC0000, #990000);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        .btn-github {
+            background: linear-gradient(135deg, #333, #6e5494, #24292e);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        .btn-telegram {
+            background: linear-gradient(135deg, #0088cc, #34aadc, #229ED9);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        .btn-discord {
+            background: linear-gradient(135deg, #5865F2, #404EED, #3C45A5);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        .btn-resume { 
+            background: linear-gradient(135deg, #2ecc71, #27ae60, #1e8449);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        .btn-whatsapp-bot {
+            background: linear-gradient(135deg, #075E54, #128C7E, #25D366);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Add pulsing glow effect */
+        .btn-whatsapp:hover { box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4); }
+        .btn-insta:hover { box-shadow: 0 15px 35px rgba(225, 48, 108, 0.4); }
+        .btn-youtube:hover { box-shadow: 0 15px 35px rgba(255, 0, 0, 0.4); }
+        .btn-github:hover { box-shadow: 0 15px 35px rgba(110, 84, 148, 0.4); }
+        .btn-telegram:hover { box-shadow: 0 15px 35px rgba(0, 136, 204, 0.4); }
+        .btn-discord:hover { box-shadow: 0 15px 35px rgba(88, 101, 242, 0.4); }
+        .btn-resume:hover { box-shadow: 0 15px 35px rgba(46, 204, 113, 0.4); }
+        .btn-whatsapp-bot:hover { box-shadow: 0 15px 35px rgba(7, 94, 84, 0.4); }
         
         section {
             background: rgba(10, 10, 20, 0.7);
@@ -289,196 +501,401 @@
         .skill-name {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             margin-bottom: 5px;
-            font-size: 0.9rem;
         }
         
         .skill-bar {
-            height: 8px;
             background: rgba(255,255,255,0.1);
+            height: 8px;
             border-radius: 4px;
             overflow: hidden;
         }
         
-        .skill-progress {
+        .skill-level {
             height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
             border-radius: 4px;
-            width: 0;
-            transition: width 1.5s ease-out;
         }
         
-        .project-gallery {
+        .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             margin-top: 30px;
         }
         
         .project-card {
-            background: rgba(255,255,255,0.03);
-            border-radius: 10px;
+            background: rgba(0, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            border-radius: 15px;
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
+            backdrop-filter: blur(5px);
         }
         
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 255, 255, 0.2);
         }
         
-        .project-image {
+        .project-card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(0, 255, 255, 0.1);
         }
         
-        .project-info {
-            padding: 20px;
+        .project-content {
+            padding: 25px;
         }
         
-        .project-title {
-            font-size: 1.3rem;
-            margin: 0 0 10px;
+        .project-content h3 {
             color: var(--primary);
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        
+        .project-content p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
         
         .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 10px 0;
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-top: 15px;
         }
         
-        .tech-tag {
-            background: rgba(0, 240, 255, 0.1);
-            color: var(--primary);
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+        .project-links {
+            margin-top: 20px;
         }
         
-        /* Animated Background Elements */
-        .bg-element {
-            position: fixed;
-            border-radius: 50%;
-            z-index: -1;
-            opacity: 0.1;
-        }
-        
-        .bg-element-1 {
-            width: 300px;
-            height: 300px;
-            background: var(--primary);
-            top: -100px;
-            left: -100px;
-            filter: blur(80px);
-        }
-        
-        .bg-element-2 {
-            width: 400px;
-            height: 400px;
-            background: var(--secondary);
-            bottom: -150px;
-            right: -150px;
-            filter: blur(100px);
-        }
-        
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            color: rgba(255,255,255,0.5);
+        .project-links .btn {
+            padding: 10px 20px;
             font-size: 0.9rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            margin-top: 60px;
+            border-radius: 20px;
+            background: linear-gradient(90deg, var(--primary), var(--electric-blue));
         }
         
-        .footer-links {
+        .project-links .btn:hover {
+            background: linear-gradient(90deg, var(--electric-blue), var(--primary));
+        }
+        
+        /* Chatbot Styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 350px;
+            height: 500px;
+            background: linear-gradient(135deg, #1a0033, #000011);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 255, 255, 0.4);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1000;
+            border: 2px solid var(--primary);
+            transform: scale(0.95);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .chatbot-container.active {
+            transform: scale(1);
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .chat-header {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            padding: 15px;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .chat-header .close-btn {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .chat-header .close-btn:hover {
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .chat-window {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background-color: rgba(0,0,0,0.6);
+            border-top: 1px solid rgba(0, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 0, 128, 0.1);
+        }
+        
+        .chat-message {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .chat-message.user {
+            justify-content: flex-end;
+        }
+        
+        .chat-message.shadow {
+            justify-content: flex-start;
+        }
+        
+        .message-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 10px;
+            border: 1px solid var(--accent);
+        }
+        
+        .message-bubble {
+            max-width: 70%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            line-height: 1.4;
+            font-size: 0.9rem;
+            position: relative;
+            word-wrap: break-word;
+        }
+        
+        .chat-message.user .message-bubble {
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-blue));
+            color: white;
+            border-bottom-right-radius: 2px;
+        }
+        
+        .chat-message.shadow .message-bubble {
+            background: linear-gradient(135deg, #222, #333);
+            color: var(--light);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-bottom-left-radius: 2px;
+        }
+        
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid rgba(0, 255, 255, 0.1);
+            background-color: rgba(0,0,0,0.8);
+        }
+        
+        .chat-input input {
+            flex-grow: 1;
+            padding: 10px 15px;
+            border: 1px solid var(--primary);
+            border-radius: 25px;
+            background-color: #0a0a0f;
+            color: var(--light);
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        .chat-input input:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+        }
+        
+        .chat-input button {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 25px;
+            color: white;
+            padding: 10px 15px;
+            margin-left: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+        
+        .chat-input button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+        
+        .chat-toggle-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.8rem;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 20px 0;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.5);
+            z-index: 1001;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .footer-link {
-            color: var(--primary);
-            text-decoration: none;
-            transition: color 0.3s;
+        .chat-toggle-btn:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 8px 25px rgba(0, 255, 255, 0.7);
         }
         
-        .footer-link:hover {
-            color: var(--secondary);
-            text-decoration: underline;
-        }
-        
-        /* Animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .floating {
-            animation: float 4s ease-in-out infinite;
-        }
-        
-        /* Placeholder images */
-        .placeholder-img {
-            background: rgba(255,255,255,0.05);
+        /* Typing indicator */
+        .typing-indicator {
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: rgba(255,255,255,0.3);
-            font-size: 0.8rem;
+            margin-left: 10px;
         }
         
-        /* Responsive */
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            margin: 0 2px;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        
+        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+        
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            margin-top: 50px;
+            border-top: 1px solid rgba(0, 255, 255, 0.1);
+            background: linear-gradient(0deg, #0a0a0f, rgba(10, 10, 15, 0.5));
+        }
+
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .tagline { font-size: 1.1rem; }
-            .social-links { flex-direction: column; align-items: center; }
-            .btn { width: 100%; justify-content: center; }
-            section { padding: 25px; }
-            .stats-grid { grid-template-columns: 1fr; }
-            .footer-links { flex-direction: column; }
+            h1 {
+                font-size: 2.5rem;
+            }
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+            .social-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .btn {
+                width: 80%;
+                max-width: 300px;
+            }
+            .chatbot-container {
+                width: 90%;
+                height: 80%;
+                bottom: 5%;
+                right: 5%;
+                left: 5%;
+            }
+            .chat-toggle-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+            .tagline {
+                font-size: 1.1rem;
+            }
+            .btn {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+            .chatbot-container {
+                width: 95%;
+                height: 90%;
+                bottom: 2.5%;
+                right: 2.5%;
+                left: 2.5%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="bg-element bg-element-1"></div>
-    <div class="bg-element bg-element-2"></div>
-    
+    <!-- Floating Particles -->
+    <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="particle" style="left: 20%; animation-delay: 1s;"></div>
+    <div class="particle" style="left: 30%; animation-delay: 2s;"></div>
+    <div class="particle" style="left: 40%; animation-delay: 3s;"></div>
+    <div class="particle" style="left: 50%; animation-delay: 4s;"></div>
+    <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
+    <div class="particle" style="left: 70%; animation-delay: 1.5s;"></div>
+    <div class="particle" style="left: 80%; animation-delay: 2.5s;"></div>
+    <div class="particle" style="left: 90%; animation-delay: 3.5s;"></div>
+    <div class="particle" style="left: 5%; animation-delay: 0.5s;"></div>
+
     <div class="container">
         <header>
-            <img src="https://files.catbox.moe/zv2pf2.jpeg" alt="Profile Picture" class="profile-img floating">
+            <img src="profile_image.jpeg" alt="Profile Picture" class="profile-img floating">
             <h1>Samhax-Tech</h1>
             <p class="tagline">Web Designer | AI Enthusiast </p>
-            
-            <div class="social-links">
-                <a href="https://wa.me/+923287573267" class="btn btn-whatsapp">
+            <div class="social-buttons">
+                <a href="https://wa.me/923287573267" class="social-btn whatsapp" target="_blank">
                     <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
-                <a href="https://instagram.com/Samhax_official" class="btn btn-insta">
+                <a href="https://instagram.com/Samhax_official" class="social-btn instagram" target="_blank">
                     <i class="fab fa-instagram"></i> Instagram
                 </a>
-                <a href="https://youtube.com/@Samhax_tech" class="btn btn-youtube">
+                <a href="https://youtube.com/@Samhax_tech" class="social-btn youtube" target="_blank">
                     <i class="fab fa-youtube"></i> YouTube
                 </a>
-                <a href="https://github.com/Samhax-tech" class="btn btn-github">
+                <a href="https://github.com/Samhax-tech" class="social-btn github" target="_blank">
                     <i class="fab fa-github"></i> GitHub
                 </a>
-                <a href="https://t.me/Samhax_official" class="btn btn-telegram">
+                <a href="https://t.me/Samhax_official" class="social-btn telegram" target="_blank">
                     <i class="fab fa-telegram"></i> Telegram
                 </a>
-                <a href="https://github.com/Samhax-tech/Samhax-ai" class="btn btn-whatsapp-bot">
-                    <i class="fab fa-github"></i> Github Repo
+                <a href="#" class="social-btn discord" target="_blank">
+                    <i class="fab fa-discord"></i> Discord
                 </a>
-                <!-- PDF Download Button -->
-                <a href="path/to/your/resume.pdf" class="btn btn-resume" download="Samhax-Tech-Resume.pdf">
-                    <i class="fas fa-file-pdf"></i> Download Resume
+            </div>
+            
+            <div class="action-buttons">
+                <a href="https://github.com/Samhax-tech" class="btn-primary" target="_blank">
+                    <i class="fab fa-github"></i> Github Repo
                 </a>
             </div>
         </header>
@@ -511,85 +928,45 @@
         <section id="skills">
             <h2>Web Design Skills</h2>
             <p>My expertise lies in crafting visually appealing and user-friendly web experiences. Here's a look at my key design proficiencies:</p>
-
+            
+            <h3>Design Tools & Technologies</h3>
             <div class="skills-matrix">
                 <div class="skill-category">
-                    <h3>Design Tools & Technologies</h3>
+                    <h3>UI/UX Design</h3>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>UI/UX Design</span>
-                            <span>82%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="90%"></div>
-                        </div>
+                        <div class="skill-name"><span>UI/UX Design</span><span>82%</span></div>
+                        <div class="skill-bar"><div class="skill-level" style="width: 82%;"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>HTML</span>
-                            <span>89%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="95%"></div>
-                        </div>
+                        <div class="skill-name"><span>HTML</span><span>89%</span></div>
+                        <div class="skill-bar"><div class="skill-level" style="width: 89%;"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>CSS</span>
-                            <span>92%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="92%"></div>
-                        </div>
+                        <div class="skill-name"><span>CSS</span><span>92%</span></div>
+                        <div class="skill-bar"><div class="skill-level" style="width: 92%;"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>JavaScript (for interactivity)</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="80%"></div>
-                        </div>
+                        <div class="skill-name"><span>JavaScript (for interactivity)</span><span>80%</span></div>
+                        <div class="skill-bar"><div class="skill-level" style="width: 80%;"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Responsive Design</span>
-                            <span>98%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="98%"></div>
-                        </div>
+                        <div class="skill-name"><span>Responsive Design</span><span>98%</span></div>
+                        <div class="skill-bar"><div class="skill-level" style="width: 98%;"></div></div>
                     </div>
                 </div>
-                
                 <div class="skill-category">
                     <h3>Bot Development & AI</h3>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>WhatsApp Bot Development</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="85%"></div>
-                        </div>
+                        <div class="skill-name"><span>WhatsApp Bot Development</span><span>90%</span></div>
+                        <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>LLM Integration</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="75%"></div>
-                        </div>
+                        <div class="skill-name"><span>LLM Integration</span><span>75%</span></div>
+                        <div class="skill-bar"><div class="skill-level" style="width: 75%;"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name">
-                            <span>NLP (Natural Language Processing)</span>
-                            <span>70%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="70%"></div>
-                        </div>
+                        <div class="skill-name"><span>NLP (Natural Language Processing)</span><span>70%</span></div>
+                        <div class="skill-bar"><div class="skill-level" style="width: 70%;"></div></div>
                     </div>
                 </div>
             </div>
@@ -598,161 +975,354 @@
         <section id="projects">
             <h2>Featured Projects</h2>
             <p>Some of my recent work that I'm particularly proud of:</p>
-            
-            <div class="project-gallery">
+            <div class="project-grid">
                 <div class="project-card">
-                    <div class="placeholder-img">AI Dashboard Preview</div>
-                    <div class="project-info">
-                        <h3 class="project-title">AI Analytics Dashboard</h3>
+                    <img src="ai_dashboard_placeholder.png" alt="AI Analytics Dashboard">
+                    <div class="project-content">
+                        <h3>AI Analytics Dashboard</h3>
                         <p>A real-time analytics platform with machine learning predictions and customizable dashboards.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">TensorFlow.js</span>
+                        <div class="project-tech">React Node.js TensorFlow.js</div>
+                        <div class="project-links">
+                            <a href="#" class="btn">View Project</a>
                         </div>
-                        <a href="https://github.com/Samhax-tech/Samhax-ai" class="btn btn-github" style="margin-top: 15px; padding: 8px 15px; font-size: 0.9rem;">
-                            <i class="fab fa-github"></i> View Project
-                        </a>
                     </div>
                 </div>
-                
                 <div class="project-card">
-                    <div class="placeholder-img">Web Designer Portfolio Preview</div>
-                    <div class="project-info">
-                        <h3 class="project-title">Personal Web Designer Portfolio</h3>
+                    <img src="web_designer_portfolio_placeholder.png" alt="Personal Web Designer Portfolio">
+                    <div class="project-content">
+                        <h3>Personal Web Designer Portfolio</h3>
                         <p>A responsive portfolio website showcasing web design skills and projects.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
+                        <div class="project-tech">HTML CSS JavaScript</div>
+                        <div class="project-links">
+                            <a href="#" class="btn">Live Demo</a>
                         </div>
-                        <a href="https://samhax-profilez.vercel.app/" class="btn btn-primary" style="margin-top: 15px; padding: 8px 15px; font-size: 0.9rem; background: var(--primary);">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="moonhax_placeholder.png" alt="Moonhax Project">
+                    <div class="project-content">
+                        <h3>🌙 Moonhax Project</h3>
+                        <p>An innovative web application showcasing cutting-edge design and development techniques with modern UI/UX principles.</p>
+                        <div class="project-tech">Next.js React Tailwind CSS</div>
+                        <div class="project-links">
+                            <a href="https://moonhax.vercel.app" class="btn" target="_blank">Visit Moonhax</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        
-        <section id="whatsapp-bot">
+
+        <section id="services">
             <h2>WhatsApp Bot Services</h2>
             <p>I offer specialized WhatsApp bot development and hosting services:</p>
             
-            <div class="skills-matrix">
-                <div class="skill-category">
-                    <h3>Bot Features</h3>
-                    <ul>
-                        <li>Automated responses and chatbots</li>
-                        <li>CRM integration</li>
-                        <li>Payment processing</li>
-                        <li>Multi-language support</li>
-                        <li>AI-powered interactions</li>
-                    </ul>
+            <h3>Bot Features</h3>
+            <ul>
+                <li>Automated responses and chatbots</li>
+                <li>CRM integration</li>
+                <li>Payment processing</li>
+                <li>Multi-language support</li>
+                <li>AI-powered interactions</li>
+            </ul>
+            
+            <h3>Hosting Services</h3>
+            <ul>
+                <li>24/7 uptime monitoring</li>
+                <li>Scalable cloud infrastructure</li>
+                <li>Daily backups</li>
+                <li>DDoS protection</li>
+                <li>API integration support</li>
+            </ul>
+        </section>
+
+        <section id="chatbot">
+            <h2>Meet Shadow - Your AI Assistant</h2>
+            <p>Introducing Shadow, an intelligent chatbot powered by advanced AI technology. Shadow can help answer questions, provide information, and assist with various tasks.</p>
+            
+            <div class="chat-interface">
+                <div class="chat-window" id="chat-window">
+                    <div class="chat-message shadow">
+                        <img src="profile_image.jpeg" alt="Shadow Avatar" class="message-avatar">
+                        <div class="message-bubble">Hello! I'm Shadow, your AI assistant. How can I help you today?</div>
+                    </div>
                 </div>
-                
-                <div class="skill-category">
-                    <h3>Hosting Services</h3>
-                    <ul>
-                        <li>24/7 uptime monitoring</li>
-                        <li>Scalable cloud infrastructure</li>
-                        <li>Daily backups</li>
-                        <li>DDoS protection</li>
-                        <li>API integration support</li>
-                    </ul>
+                <div class="chat-input">
+                    <input type="text" id="user-input" placeholder="Type your message here...">
+                    <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
                 </div>
             </div>
-            
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="https://wa.me/+923287573267" class="btn btn-whatsapp-bot" style="margin: 10px;">
-                    <i class="fas fa-robot"></i> Contact for Bot Development
-                </a>
-                <a href="#" class="btn btn-hosting" style="margin: 10px;">
-                    <i class="fas fa-server"></i> WhatsApp Bot Hosting
-                </a>
+
+            <h3>Shadow's Capabilities</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-comments"></i>
+                    <h4>Natural Conversations</h4>
+                    <p>Engage in human-like conversations with advanced language understanding.</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h4>Smart Assistance</h4>
+                    <p>Get help with coding, design, and technical questions.</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <h4>24/7 Availability</h4>
+                    <p>Shadow is always ready to help, anytime you need assistance.</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-brain"></i>
+                    <h4>Learning & Adapting</h4>
+                    <p>Continuously improving responses based on interactions.</p>
+                </div>
             </div>
         </section>
-        
+
         <footer>
-            <div class="footer-links">
-                <a href="https://github.com/Samhax-Tech" class="footer-link">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                <a href="https://instagram.com/Samhax_official" class="footer-link">
-                    <i class="fab fa-instagram"></i> Instagram
-                </a>
-                <a href="https://youtube.com/@Samhax_tech" class="footer-link">
-                    <i class="fab fa-youtube"></i> YouTube
-                </a>
-                <a href="https://t.me/Samhax-Tech" class="footer-link">
-                    <i class="fab fa-telegram"></i> Telegram
-                </a>
-                <a href="https://wa.me/+923287573267" class="footer-link">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-                <a href="#whatsapp-bot" class="footer-link">
-                    <i class="fas fa-robot"></i> Bot Services
-                </a>
-            </div>
-            <p>© <span id="current-year">2025</span> Samhax-Tech. All rights reserved.</p>
-            <p>Built with <i class="fas fa-heart" style="color: var(--secondary);"></i> and <i class="fas fa-code" style="color: var(--primary);"></i></p>
+            <p>&copy; 2025 Samhax-Tech. All rights reserved.</p>
+            <p>Built with ❤️ and &lt;/&gt;</p>
         </footer>
     </div>
 
+    <button class="chat-toggle-btn" id="chat-toggle-btn"><i class="fas fa-robot"></i></button>
+
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="chat-header">
+            Shadow AI Assistant
+            <button class="close-btn" id="close-chat">&times;</button>
+        </div>
+        <div class="chat-window" id="chat-window-popup">
+            <div class="chat-message shadow">
+                <img src="profile_image.jpeg" alt="Shadow Avatar" class="message-avatar">
+                <div class="message-bubble">Hello! I'm Shadow, your AI assistant. How can I help you today?</div>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="user-input-popup" placeholder="Type your message here...">
+            <button id="send-btn-popup"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
     <script>
-        // Animated counters
-        function animateValue(id, start, end, duration) {
-            const obj = document.getElementById(id);
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                obj.innerHTML = Math.floor(progress * (end - start) + start);
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                }
-            };
-            window.requestAnimationFrame(step);
-        }
-        
-        // Animate skill bars
-        function animateSkills() {
-            const skillBars = document.querySelectorAll('.skill-progress');
-            skillBars.forEach(bar => {
-                const width = bar.getAttribute('data-width');
-                bar.style.width = width;
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatToggleBtn = document.getElementById('chat-toggle-btn');
+            const chatbotContainer = document.getElementById('chatbot-container');
+            const closeChatBtn = document.getElementById('close-chat');
+            const chatWindowPopup = document.getElementById('chat-window-popup');
+            const userInputPopup = document.getElementById('user-input-popup');
+            const sendBtnPopup = document.getElementById('send-btn-popup');
+
+            chatToggleBtn.addEventListener('click', () => {
+                chatbotContainer.classList.toggle('active');
             });
-        }
-        
-        // Set current year
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-        
-        // Run animations when scrolled to
-        function checkScroll() {
-            const aboutSection = document.getElementById('about');
-            const aboutPosition = aboutSection.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.3;
-            
-            if (aboutPosition < screenPosition) {
-                animateValue('projects-count', 0, 50, 2000);
-                animateValue('clients-count', 0, 38, 2000);
-                animateValue('experience-years', 0, 2, 2000);
-                animateValue('coffee-cups', 0, 143, 2000);
-                animateSkills();
-                window.removeEventListener('scroll', checkScroll);
+
+            closeChatBtn.addEventListener('click', () => {
+                chatbotContainer.classList.remove('active');
+            });
+
+            // Gemini API Configuration
+            const GEMINI_API_KEY = 'AIzaSyCxkKI3Z8vWmJ3SNjRb66B9i3akzG-XMek';
+            const GEMINI_API_ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
+
+            // Enhanced predefined responses for Shadow
+            const shadowResponses = {
+                "hello": "Hello there! How can I assist you today?",
+                
+
+
+                "hi": "Hi! I'm Shadow, your AI assistant. What can I help you with?",
+                "help": "I can help you with various tasks including:\n• Web development questions\n• Information about Samhax-Tech services\n• General assistance and conversation\n• Technical support\n\nJust ask me anything!",
+                "services": "Samhax-Tech offers:\n• Professional web design\n• WhatsApp bot development\n• AI chatbot integration\n• Website hosting services\n• Custom web applications\n\nWould you like to know more about any specific service?",
+                "contact": "You can contact Samhax-Tech through:\n• WhatsApp: +92 328 7573267\n• Instagram: @Samhax_official\n• YouTube: @Samhax_tech\n• GitHub: Samhax-tech\n• Telegram: @Samhax_official",
+                "moonhax": "Moonhax is an innovative web application showcasing cutting-edge design and development techniques. It features modern UI/UX principles built with Next.js, React, and Tailwind CSS. You can visit it at moonhax.vercel.app",
+                "about": "I'm Shadow, an AI assistant created to help users with various tasks. I'm powered by advanced language models and can assist with web development, provide information about Samhax-Tech services, and engage in meaningful conversations.",
+                "time": () => `The current time is ${new Date().toLocaleTimeString()}`,
+                "date": () => `Today's date is ${new Date().toLocaleDateString()}`,
+                "default": "I'm here to help! Could you please rephrase your question or ask me something specific about web development, Samhax-Tech services, or anything else you'd like to know?"
+            };
+
+            // Function to call Gemini API
+            async function callGeminiAPI(message) {
+                try {
+                    const response = await fetch(`${GEMINI_API_ENDPOINT}?key=${GEMINI_API_KEY}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            contents: [{
+                                parts: [{
+                                    text: `You are Shadow, an AI assistant for Samhax-Tech. Respond helpfully and professionally to: ${message}`
+                                }]
+                            }]
+                        })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+                    return data.candidates[0].content.parts[0].text;
+                } catch (error) {
+                    console.error('Gemini API Error:', error);
+                    return null;
+                }
             }
-        }
-        
-        // Initialize animations
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set current year
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-            
-            // Run initial check in case page loads with section already visible
-            checkScroll();
-            
-            // Add scroll listener
-            window.addEventListener('scroll', checkScroll);
+
+            // Function to get Shadow's response
+            async function getShadowResponse(message) {
+                const lowerMessage = message.toLowerCase().trim();
+                
+                // Check for predefined responses first
+                for (const [key, response] of Object.entries(shadowResponses)) {
+                    if (lowerMessage.includes(key)) {
+                        return typeof response === 'function' ? response() : response;
+                    }
+                }
+
+                // Try Gemini API for more complex queries
+                const geminiResponse = await callGeminiAPI(message);
+                if (geminiResponse) {
+                    return geminiResponse;
+                }
+
+                // Fallback response
+                return shadowResponses.default;
+            }
+
+            // Function to add message to chat
+            function addMessage(message, isUser = false) {
+                const chatWindow = chatWindowPopup;
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `chat-message ${isUser ? 'user' : 'shadow'}`;
+                
+                const avatar = document.createElement('img');
+                avatar.src = 'profile_image.jpeg';
+                avatar.alt = isUser ? 'User Avatar' : 'Shadow Avatar';
+                avatar.className = 'message-avatar';
+                
+                const bubble = document.createElement('div');
+                bubble.className = 'message-bubble';
+                bubble.textContent = message;
+                
+                if (isUser) {
+                    messageDiv.appendChild(bubble);
+                    messageDiv.appendChild(avatar);
+                } else {
+                    messageDiv.appendChild(avatar);
+                    messageDiv.appendChild(bubble);
+                }
+                
+                chatWindow.appendChild(messageDiv);
+                chatWindow.scrollTop = chatWindow.scrollHeight;
+            }
+
+            // Function to show typing indicator
+            function showTypingIndicator() {
+                const chatWindow = chatWindowPopup;
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'chat-message shadow typing-message';
+                typingDiv.innerHTML = `
+                    <img src="profile_image.jpeg" alt="Shadow Avatar" class="message-avatar">
+                    <div class="message-bubble">
+                        <div class="typing-indicator">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                `;
+                chatWindow.appendChild(typingDiv);
+                chatWindow.scrollTop = chatWindow.scrollHeight;
+                return typingDiv;
+            }
+
+            // Function to remove typing indicator
+            function removeTypingIndicator(typingDiv) {
+                if (typingDiv && typingDiv.parentNode) {
+                    typingDiv.parentNode.removeChild(typingDiv);
+                }
+            }
+
+            // Function to handle sending messages
+            async function sendMessage() {
+                const input = userInputPopup;
+                const message = input.value.trim();
+                
+                if (message === '') return;
+                
+                // Add user message
+                addMessage(message, true);
+                input.value = '';
+                
+                // Show typing indicator
+                const typingIndicator = showTypingIndicator();
+                
+                // Get Shadow's response
+                try {
+                    const response = await getShadowResponse(message);
+                    removeTypingIndicator(typingIndicator);
+                    addMessage(response, false);
+                } catch (error) {
+                    removeTypingIndicator(typingIndicator);
+                    addMessage("I'm having trouble connecting to my AI brain right now. Let me try to help you with my built-in knowledge instead!", false);
+                }
+            }
+
+            // Event listeners for popup chat
+            sendBtnPopup.addEventListener('click', sendMessage);
+            userInputPopup.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+
+            // Animated counter for stats
+            function animateCounter(element, target, duration = 2000) {
+                let start = 0;
+                const increment = target / (duration / 16);
+                
+                function updateCounter() {
+                    start += increment;
+                    if (start < target) {
+                        element.textContent = Math.floor(start);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        element.textContent = target;
+                    }
+                }
+                updateCounter();
+            }
+
+            // Initialize counters when page loads
+            setTimeout(() => {
+                animateCounter(document.getElementById('projects-count'), 29);
+                animateCounter(document.getElementById('clients-count'), 22);
+                animateCounter(document.getElementById('experience-years'), 1);
+                animateCounter(document.getElementById('coffee-cups'), 83);
+            }, 1000);
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add floating animation to profile image
+            const profileImg = document.querySelector('.profile-img');
+            if (profileImg) {
+                profileImg.classList.add('floating');
+            }
         });
     </script>
 </body>
 </html>
+
